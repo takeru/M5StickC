@@ -24,6 +24,15 @@ int IMU::Init(void) {
     return 0;
 }
 
+int IMU::Sleep(void) {
+    if (imuType == IMU_SH200Q) {
+        // Not implemented.
+        return -1;
+    } else if (imuType == IMU_MPU6886) {
+        return M5.Mpu6886.Sleep();
+    }
+}
+
 void IMU::getGres() {
     if (imuType == IMU_SH200Q) {
         gRes = M5.Sh200Q.gRes;

@@ -14,6 +14,7 @@ public:
     IMU();
 
     int Init(void);
+    int Sleep(void);
 
     void getGres();
     void getAres();
