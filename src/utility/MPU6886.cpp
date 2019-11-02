@@ -97,6 +97,14 @@ int MPU6886::Init(void){
   return 0;
 }
 
+int MPU6886::Sleep(void){
+  unsigned char regdata;
+  regdata = (1<<6)|(1<<3);
+  I2C_Write_NBytes(MPU6886_ADDRESS, MPU6886_PWR_MGMT_1, 1, &regdata);
+  delay(10);
+  return 0;
+}
+
 void MPU6886::getAccelAdc(int16_t* ax, int16_t* ay, int16_t* az){
 
    uint8_t buf[6];  
